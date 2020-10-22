@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Kalkulator Walutowy</title>
+</h:head>
+<h:body>
+
+	<h:form>
+		<p:panel id="horizontal" header="Kalkulator walutowy"
+			toggleable="true">
+
+			<h:panelGrid columns="7" style="margin-bottom:10px" cellpadding="5">
+				<h:outputText value="Kwota:" style="font-weight:bold" />
+				<p:inputText value="#{calcBB.value}" />
+				<h:outputText value="Waluta #1:" style="font-weight:bold" />
+				<p:selectOneButton value="#{calcBB.currency1}">
+					<f:selectItem itemLabel="PLN" itemValue="PLN" />
+					<f:selectItem itemLabel="EUR" itemValue="EUR" />
+					<f:selectItem itemLabel="USD" itemValue="USD" />
+				</p:selectOneButton>
+
+				<h:outputText value="Waluta #2:" style="font-weight:bold" />
+				<p:selectOneButton value="#{calcBB.currency2}">
+					<f:selectItem itemLabel="PLN" itemValue="PLN" />
+					<f:selectItem itemLabel="EUR" itemValue="EUR" />
+					<f:selectItem itemLabel="USD" itemValue="USD" />
+				</p:selectOneButton>
+				<p:commandButton value="Oblicz" action="#{calcBB.calc()}"
+					update="display" />
+
+				<h:outputText value="Wynik:" style="font-weight:bold" />
+				<h:outputText id="display" value="#{calcBB.result}"
+					style="font-weight: bold" />
+			</h:panelGrid>
+		</p:panel>
+		<p:messages id="messages" showDetail="true" closable="true">
+			<p:autoUpdate />
+		</p:messages>
+	</h:form>
+
+</h:body>
+</html>
