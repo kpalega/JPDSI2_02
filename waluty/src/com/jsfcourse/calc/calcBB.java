@@ -11,7 +11,7 @@ import javax.faces.context.FacesContext;
 public class calcBB {
 	private String currency1;
 	private String currency2;
-	private String value;
+	private Double value;
 	private Double result;
 
 	@Inject
@@ -33,11 +33,11 @@ public class calcBB {
 		this.currency2 = currency2;
 	}
 
-	public String getValue() {
+	public Double getValue() {
 		return value;
 	}
 
-	public void setValue(String value) {
+	public void setValue(Double value) {
 		this.value = value;
 	}
 
@@ -51,7 +51,7 @@ public class calcBB {
 
 	public void calc() {
 		try {
-			double value = Double.parseDouble(this.value);
+			double value = this.value;
 			
 			if (currency1.equals("PLN")) {
 				if (currency2.equals("PLN")) {
