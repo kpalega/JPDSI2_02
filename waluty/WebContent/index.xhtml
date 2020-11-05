@@ -5,11 +5,10 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
-<h:head>
-	<title>Kalkulator Walutowy</title>
-</h:head>
-<h:body>
 
+<ui:composition template="/templates/page-template.xhtml">
+	
+	<ui:define name="pageContent">
 	<h:form>
 		<p:panel id="horizontal" header="Kalkulator walutowy"
 			toggleable="true">
@@ -41,10 +40,12 @@
 					style="font-weight: bold" />
 			</h:panelGrid>
 		</p:panel>
-		<p:messages id="messages" showDetail="true" closable="true">
+		<p:messages id="messages" showDetail="false" closable="true">
 			<p:autoUpdate />
 		</p:messages>
 	</h:form>
+	
+	</ui:define>
+</ui:composition>
 
-</h:body>
 </html>
